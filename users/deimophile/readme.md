@@ -1,1 +1,1 @@
-# The default keymap LFKPad 21
+Custom work keymap for LFKPad
