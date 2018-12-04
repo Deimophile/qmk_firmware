@@ -7,6 +7,7 @@
 
 enum custome_keycodes {
   TAB5 = SAFE_RANGE,
+  STAB5
   TAR,
   PIP,
   STIG,
@@ -26,7 +27,7 @@ enum custome_keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_numpad_6x4( /* Base */
-    S_TAB,   KC_TAB,   KC_PEQL,  MO(1),    \
+    S_TAB,   KC_TAB,   KC_BSPC,  MO(1),    \
     KC_LNUM,  KC_PSLS,  KC_PAST,  KC_PMNS, \
     KC_P7,    KC_P8,    KC_P9,             \
     KC_P4,    KC_P5,    KC_P6,    KC_PPLS, \
@@ -35,7 +36,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [1] = LAYOUT_numpad_6x4( /* Macros */
-    TAB5,  RGB_VAI,  RGB_HUI,  _______,     \
+    TAB5,     TAB5,  RGB_HUI,  _______,     \
     INO,      INCI,     PUNC,     MO(2),    \
     NIG,      MEL,      VEX,                \
     FREE,     FRA,      PUNC,     WASH,     \
@@ -77,8 +78,11 @@ void matrix_scan_user(void) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   // Macros go here
-  if (record->event.pressed) {
+   if (record->event.pressed) {
     switch (keycode) {
+      case STAB5
+      SEND_STRING(SS_TAP(LSFT(X_TAB)) SS_TAP(LSFT(X_TAB)) SS_TAP(LSFT(X_TAB)) SS_TAP(LSFT(X_TAB)) SS_TAP(LSFT(X_TAB)) );
+        return false;
       case TAB5:
         SEND_STRING(SS_TAP(X_TAB) SS_TAP(X_TAB) SS_TAP(X_TAB) SS_TAP(X_TAB) SS_TAP(X_TAB) );
         return false;
@@ -108,19 +112,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         return false;
       case INCI:
         SEND_STRING("inci" SS_TAP(X_DOWN) SS_TAP(X_TAB) SS_TAP(X_TAB) );
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-  373-                                                                                                                                                      -fra
-        return false;   -puncti
-      case PART:    
+        return false;
+      case PART:
         SEND_STRING("par" SS_TAP(X_DOWN) SS_TAP(X_TAB) SS_TAP(X_TAB) );
         return false;
       case NIG:
