@@ -104,12 +104,23 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING("puncti" SS_TAP(X_DOWN) SS_TAP(X_TAB) SS_TAP(X_TAB) );
         return false;
       case INO:
-        SEND_STRING("ino" SS_TAP(X_DOWN) SS_TAP(X_TAB) SS_TAP(X_TAB) );
+        SEND_STRING("inor" SS_TAP(X_DOWN) SS_TAP(X_TAB) SS_TAP(X_TAB) );
         return false;
       case INCI:
         SEND_STRING("inci" SS_TAP(X_DOWN) SS_TAP(X_TAB) SS_TAP(X_TAB) );
-        return false;
-      case PART:
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+  373-                                                                                                                                                      -fra
+        return false;   -puncti
+      case PART:    
         SEND_STRING("par" SS_TAP(X_DOWN) SS_TAP(X_TAB) SS_TAP(X_TAB) );
         return false;
       case NIG:
